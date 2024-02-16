@@ -1,8 +1,5 @@
 import enum
 
-from dataclasses import dataclass
-from decimal import Decimal
-
 
 class _EmojiVersion(str, enum.Enum):
     E1_0 = "1.0"
@@ -20,36 +17,6 @@ class _EmojiVersion(str, enum.Enum):
     E15_1 = "15.1"
 
 
-@dataclass()
-class Emoji:
-    emoji: str
-    alias: str
-    version: Decimal
-    _variants: list[Emoji] | None = None
-
-    @property
-    def variants(self) -> list[str]:
-        out = []
-        for variant in self._variants:
-            out.append(variant.emoji)
-        return out
-
-
-class EmojiContainer:
-
-    def emojis(self) -> list[Emoji]:
-        pass
-
-
-class EmojiGroup(EmojiContainer):
-
-    def __init__(self):
-        pass
-
-    def subgroups(self) -> list[EmojiContainer]:
-        pass
-
-
 class EmojiIndex:
 
     def __init__(self):
@@ -64,8 +31,3 @@ class EmojiIndex:
             self._version = _EmojiVersion(version)
         else:
             raise ValueError(f"Version {version} not supported")
-
-    @staticmethod
-    def groups(version: str | None = None) -> list[EmojiGroup]:
-        # TODO
-        pass
