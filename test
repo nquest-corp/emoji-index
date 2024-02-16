@@ -1,0 +1,5 @@
+from src import emoji_index
+
+emoji_index.set_version("13.0")
+
+print(emoji_index.version)
