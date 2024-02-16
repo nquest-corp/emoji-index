@@ -1,7 +1,7 @@
 import enum
 
 from dataclasses import dataclass
-from decimal import decimal
+from decimal import Decimal
 
 
 class _EmojiVersion(str, enum.Enum):
