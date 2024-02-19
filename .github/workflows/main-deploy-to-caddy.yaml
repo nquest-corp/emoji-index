@@ -39,4 +39,4 @@ jobs:
         username: ${{ secrets.SCP_USERNAME }}
         key: ${{ secrets.SCP_KEY }}
         source: ./*.whl
-        target: /var/www/emoji-index/
+        target: /var/www/emoji_index/
