@@ -1,6 +1,7 @@
 import re
 
 from decimal import Decimal
+from importlib.resources import files
 
 import emoji as emojilib
 
@@ -17,7 +18,8 @@ class EmojiData:
 
     def __init__(self):
         data = {}
-        file = open('data/emoji-test.txt', 'r')
+        file_ref = files('emoji_index.data').joinpath('emoji-test.txt')
+        file = open(file_ref, 'r')
         group = None
         subgroup = None
         for line in file.readlines():

@@ -5,7 +5,7 @@ This is a lightweight extension to the excellent [https://github.com/carpedm20/e
 ## Using the Project
 
 ```python
-import emoji_index
+from emoji_index import emoji_index
 
 emoji_index.set_version("13.0")
 
