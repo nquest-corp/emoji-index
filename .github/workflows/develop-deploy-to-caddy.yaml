@@ -1,0 +1,42 @@
+name: Develop Branch Deploy to CaddyFile
+
+on:
+  push:
+    branches: [ develop ]
+  workflow_dispatch:
+
+jobs:
+
+  build-deploy-airside2:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:  
+        python-version: 3.11.6
+
+    - name: Install build dependencies
+      run: |
+        pip3 install build setuptools
+        python3 -m build
+        mv ./dist/*.whl .
+
+    - uses: twingate/github-action@v1
+      with:
+        # The Twingate Service Key used to connect Twingate to the proper service
+        # Learn more about [Twingate Services](https://docs.twingate.com/docs/services)
+        #
+        # Required
+        service-key: ${{ secrets.TWINGATE_SERVICE_KEY }}
+
+    - name: copy file via ssh key
+      uses: appleboy/scp-action@v0.1.4
+      with:
+        host: fs.int.nquest.co
+        username: ${{ secrets.SCP_USERNAME }}
+        key: ${{ secrets.SCP_KEY }}
+        source: ./*.whl
+        target: /var/www/emoji-index/
