@@ -19,7 +19,7 @@ class EmojiData:
     def __init__(self):
         data = {}
         file_ref = files('emoji_index.data').joinpath('emoji-test.txt')
-        file = open(file_ref, 'r')
+        file = open(file_ref, 'r', encoding="utf8")
         group = None
         subgroup = None
         for line in file.readlines():
