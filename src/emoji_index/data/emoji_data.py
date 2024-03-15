@@ -1,4 +1,4 @@
-# emoji-test.txt
+emoji_text = """# emoji-test.txt
 # Date: 2023-06-05, 21:39:54 GMT
 # © 2023 Unicode®, Inc.
 # Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
@@ -5323,3 +5323,4 @@
 # component : 9
 
 #EOF
+"""

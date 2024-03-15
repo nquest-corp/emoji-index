@@ -1,10 +1,10 @@
 import re
 
 from decimal import Decimal
-from importlib.resources import files
 
 import emoji as emojilib
 
+from .emoji_data import emoji_text
 from ..objects.emoji import _EmojiInt, _EmojiQual
 
 
@@ -18,11 +18,9 @@ class EmojiData:
 
     def __init__(self):
         data = {}
-        file_ref = files('emoji_index.data').joinpath('emoji-test.txt')
-        file = open(file_ref, 'r')
         group = None
         subgroup = None
-        for line in file.readlines():
+        for line in emoji_text.split('\n'):
             line = line.strip()
             if line == '':
                 continue
@@ -38,7 +36,6 @@ class EmojiData:
                 if emoji is not None and emoji.qual is _EmojiQual.FullyQualified:
                     data[group][subgroup].append(emoji)
         self.data = data
-        file.close()
 
     def _parse_emoji_row(row: str) -> _EmojiInt:
         characters = row[:55].strip().split(' ')
