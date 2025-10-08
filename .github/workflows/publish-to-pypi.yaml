@@ -1,9 +1,6 @@
 name: Publish to PyPI
 
 on:
-  release:
-    types: [published]
-  # Alternatively, trigger on version tags
   push:
     tags:
       - 'v*'
@@ -39,15 +36,3 @@ jobs:
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-        # For trusted publishing (recommended):
-        # 1. Go to https://pypi.org/manage/account/publishing/
-        # 2. Add a new pending publisher with:
-        #    - PyPI Project Name: emoji-index
-        #    - Owner: nquest-corp
-        #    - Repository: emoji-index
-        #    - Workflow name: publish-to-pypi.yaml
-        #    - Environment name: (leave blank)
-
-        # Alternatively, use API token (less secure):
-        # with:
-        #   password: ${{ secrets.PYPI_API_TOKEN }}

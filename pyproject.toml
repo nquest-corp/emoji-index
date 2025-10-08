@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "emoji-index"
-version = "0.1.1"
+version = "0.1.2"
 authors = [{name="nQuest Corporation", email="support@nquest.io"}]
 description = "A lightweight extension to the emoji library providing indexed traversal of emoji characters for selection menus"
 readme = "README.md"
