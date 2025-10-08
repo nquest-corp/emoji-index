@@ -27,6 +27,6 @@ Additionally, hair component modifiers are not presently supported. (https://www
 
 ## Licensing
 
-This project is released under the Apache 2.0 License. See the license file for the Apache 2.0 License. We will make this generally available at a future date.
+This project is released under the Apache 2.0 License. See the license file for the Apache 2.0 License.
 
 Note that the project also contains data by the Unicode Consortium, which is licensed under the Unicode License Agreement. See the license file for the Unicode License Agreement Reference.
